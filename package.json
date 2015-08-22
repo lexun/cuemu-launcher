@@ -1,0 +1,12 @@
+{
+  "name": "swg-launcher",
+  "version": "1.0.0",
+  "description": "Patcher and Launcher for SWG",
+  "main": "build/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luke Barbuto",
+  "license": "ISC",
+  "private": true
+}

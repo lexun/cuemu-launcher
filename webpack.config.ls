@@ -1,9 +1,12 @@
 module.exports = do
   target: 'electron'
-  entry: './src/main.ls'
+  entry:
+    main: './src/main.ls'
+    app: './src/app.ls'
   output:
     path: __dirname + '/out'
-    filename: 'main.js'
+    filename: '[name].js'
+    chunk-filename: '[id].js'
   module:
     loaders:
       * test: /\.ls$/,

@@ -2,11 +2,18 @@
   "name": "swg-launcher",
   "version": "1.0.0",
   "description": "Patcher and Launcher for SWG",
-  "main": "build/main.js",
+  "main": "out/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Luke Barbuto",
   "license": "ISC",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "electron": "^0.4.1",
+    "file-loader": "^0.8.4",
+    "livescript": "^1.4.0",
+    "livescript-loader": "^0.1.5",
+    "webpack": "^1.11.0"
+  }
 }

@@ -4,7 +4,7 @@ module.exports = do
     main: './src/main.ls'
     app: './src/app.ls'
   output:
-    path: __dirname + '/out'
+    path: __dirname + '/app'
     filename: '[name].js'
     chunk-filename: '[id].js'
   module:

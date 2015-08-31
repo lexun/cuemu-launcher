@@ -1,10 +1,13 @@
 require! react: React
-require! reactionary: { h1 }
+require! reactionary: { div, h1 }
 
 
 class Layout extends React.Component
   render: ->
-    h1 'Hello ' + @props.name
+    div class-name: \container,
+      div class-name: \row,
+        div class-name: \col-md-12,
+          h1 \CUEmu
 
 
 module.exports = Layout

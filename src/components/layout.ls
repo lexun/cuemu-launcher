@@ -1,9 +1,10 @@
 require! react: React
+require! reactionary: { h1 }
 
 
 class Layout extends React.Component
   render: ->
-    React.DOM.h1 {}, @props.name
+    h1 'Hello ' + @props.name
 
 
 module.exports = Layout

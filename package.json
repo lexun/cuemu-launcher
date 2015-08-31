@@ -14,9 +14,11 @@
     "file-loader": "^0.8.4",
     "livescript": "^1.4.0",
     "livescript-loader": "^0.1.5",
+    "style-loader": "^0.12.3",
     "webpack": "^1.11.0"
   },
   "dependencies": {
+    "bootswatch": "^3.3.5",
     "react": "^0.13.3",
     "reactionary": "^0.9.0"
   }

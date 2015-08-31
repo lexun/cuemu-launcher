@@ -13,6 +13,8 @@ module.exports = do
         loader: 'livescript'
       * test: /\.html$/
         loader: 'file?name=[name].html'
+      * test: /\.css$/
+        loader: 'style/url!file?name=[name].css'
   resolve:
     root: __dirname + '/src'
   node:

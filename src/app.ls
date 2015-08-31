@@ -1,5 +1,6 @@
 require! react: React
-require! './components/layout.ls': Layout
+require! \bootswatch/slate/bootstrap.css
+require! \./components/layout.ls : Layout
 
 
 Layout

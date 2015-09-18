@@ -1,7 +1,21 @@
 html, body {
+  background-color: rgba(39,43,48,0.8);
   cursor: default;
   height: 100%;
   width: 100%;
   -webkit-app-region: drag;
   -webkit-user-select: none;
+}
+
+a, button, .form-group {
+  -webkit-app-region: no-drag;
+}
+
+input[type='file'] {
+  color: darkgray;
+  line-height: 1em;
+}
+
+.label:focus {
+  outline: none;
 }

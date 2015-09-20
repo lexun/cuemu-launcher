@@ -7,7 +7,7 @@ module.exports = {
     app: './src/app.js'
   },
   output: {
-    path: __dirname + '/app',
+    path: __dirname + '/build',
     filename: '[name].js',
     chunkFilename: '[id].js'
   },
@@ -18,8 +18,8 @@ module.exports = {
         loaders: ['babel'],
         include: path.join(__dirname, 'src')
       }, {
-        test: /\.html$/,
-        loader: 'file?name=[name].html'
+        test: /(\.html$|\.json$|.png$)/,
+        loader: 'file?name=[name].[ext]'
       }, {
         test: /\.css$/,
         loader: 'style/url!file?name=[name].css'

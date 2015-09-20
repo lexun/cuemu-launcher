@@ -1,5 +1,9 @@
 import 'bootswatch/slate/bootstrap.css'
-import 'style.css'
+
+import './static/index.html'
+import './static/logo.png'
+import './static/package.json'
+import './static/style.css'
 
 import React from 'react'
 import Layout from './components/layout'

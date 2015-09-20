@@ -1,6 +1,5 @@
 {
   "name": "swg-launcher",
-  "version": "1.0.0",
   "main": "./main.js",
   "author": "Luke Barbuto",
   "license": "ISC",

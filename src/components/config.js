@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
+import { Input } from 'react-bootstrap';
 
 export default class Config extends Component {
   componentDidMount() {
@@ -9,10 +10,7 @@ export default class Config extends Component {
   render() {
     return(
       <form>
-        <div className='form-group'>
-          <label htmlFor='install-location'>Install Location</label>
-          <input id='install-location' type='file' />
-        </div>
+        <Input label='Install Location' type='file' id='install-location' />
       </form>
     )
   }

@@ -30,6 +30,7 @@
     "mocha-jsdom": "^1.0.0",
     "react": "0.14.0-rc1",
     "react-addons-test-utils": "^0.14.0-rc1",
+    "react-bootstrap": "^0.25.100-react-pre.1",
     "react-dom": "^0.14.0-rc1",
     "rimraf": "^2.4.3",
     "style-loader": "^0.12.3",

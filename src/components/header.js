@@ -11,7 +11,7 @@ const styles = {
     minHeight: 100,
   },
   button: {
-    margin: '20px 30px 0 0',
+    margin: '20px 20px 0 0',
   }
 }
 

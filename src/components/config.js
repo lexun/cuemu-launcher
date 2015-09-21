@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
 
 export default class Config extends Component {
   componentDidMount() {
-    React.findDOMNode(this)
-      .elements['install-location']
-      .webkitdirectory = true
+    findDOMNode(this).elements['install-location'].webkitdirectory = true
   }
 
   render() {

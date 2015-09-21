@@ -6,9 +6,10 @@ import './static/package.json'
 import './static/style.css'
 
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Layout from './components/layout'
 
-React.render(
+ReactDOM.render(
   React.createElement(Layout),
   document.getElementById('app-root')
 )

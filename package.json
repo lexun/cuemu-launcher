@@ -8,7 +8,7 @@
     "clean": "./node_modules/.bin/rimraf build",
     "dev": "./node_modules/.bin/webpack --progress --colors --watch",
     "lint": "./node_modules/.bin/eslint src",
-    "start": "cd build && ../node_modules/.bin/electron .",
+    "start": "cd build && HOT=1 ../node_modules/.bin/electron .",
     "test": "./node_modules/.bin/mocha --compilers js:babel/register --recursive src/**/*-test.js"
   },
   "author": "Luke Barbuto",
@@ -34,6 +34,7 @@
     "react-dom": "^0.14.0-rc1",
     "rimraf": "^2.4.3",
     "style-loader": "^0.12.3",
-    "webpack": "^1.11.0"
+    "webpack": "^1.11.0",
+    "webpack-target-electron-renderer": "^0.1.0"
   }
 }

@@ -1,7 +1,9 @@
 var path = require('path');
+var webpackTargetElectronRenderer = require('webpack-target-electron-renderer')
 
-module.exports = {
-  target: 'electron',
+options = {
+  devTool: 'eval',
+  debug: true,
   entry: {
     main: './src/main.js',
     app: './src/app.js'
@@ -15,7 +17,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel'],
+        loaders: ['react-hot-loader', 'babel'],
         include: path.join(__dirname, 'src')
       }, {
         test: /(\.html$|\.json$|.png$)/,
@@ -27,9 +29,14 @@ module.exports = {
     ]
   },
   resolve: {
-    root: __dirname + '/src'
+    root: __dirname + '/src',
+    packageMains: ['webpack', 'browser', 'main']
   },
+  publicPath: 'http://localhost:2992/dist/',
   node: {
     __dirname: true
   }
-};
+}
+
+options.target = webpackTargetElectronRenderer(options)
+module.exports = options

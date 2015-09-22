@@ -21,6 +21,6 @@ App.on('ready', () => {
     width: 1200,
   })
 
-  mainWindow.loadUrl('file://' + path.resolve(__dirname, '../index.html'))
+  mainWindow.loadUrl('http://localhost:2992/')
   mainWindow.on('closed', () => { mainWindow = null })
 })

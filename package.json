@@ -7,9 +7,11 @@
     "build": "./node_modules/.bin/webpack",
     "clean": "./node_modules/.bin/rimraf build",
     "dev": "./node_modules/.bin/webpack --progress --colors --watch",
+    "hot": "./node_modules/.bin/webpack-dev-server --config webpack.config.js --hot --progress --colors --port 2992 --inline",
     "lint": "./node_modules/.bin/eslint src",
-    "start": "cd build && HOT=1 ../node_modules/.bin/electron .",
-    "test": "./node_modules/.bin/mocha --compilers js:babel/register --recursive src/**/*-test.js"
+    "start": "cd build && ../node_modules/.bin/electron .",
+    "test": "./node_modules/.bin/mocha --compilers js:babel/register --recursive src/**/*-test.js",
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Luke Barbuto",
   "license": "MIT",

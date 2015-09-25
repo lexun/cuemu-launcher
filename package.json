@@ -1,7 +1,7 @@
 {
-  "name": "swg-launcher",
-  "version": "1.0.0",
-  "description": "Patcher and Launcher for SWG",
+  "name": "cuemu-launchpad",
+  "version": "0.0.1",
+  "description": "Patcher and Launcher for SWG CUEmu",
   "main": "build/main.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack",

@@ -17,7 +17,7 @@ options = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['react-hot-loader', 'babel'],
+        loaders: ['react-hot-loader', 'babel?stage=0'],
         include: path.join(__dirname, 'src')
       }, {
         test: /(\.html$|\.json$|.png$)/,

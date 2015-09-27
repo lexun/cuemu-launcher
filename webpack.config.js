@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 var webpackTargetElectronRenderer = require('webpack-target-electron-renderer')
 
 options = {
@@ -35,7 +36,12 @@ options = {
   publicPath: 'http://localhost:2992/dist/',
   node: {
     __dirname: true
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      __DEVTOOLS__: true
+    })
+  ]
 }
 
 options.target = webpackTargetElectronRenderer(options)

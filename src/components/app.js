@@ -3,7 +3,7 @@ import Config from './config';
 import Header from './header';
 import { Grid, Row, Col } from 'react-bootstrap';
 
-export default class Layout extends Component {
+export default class App extends Component {
   render() {
     return(
       <div>

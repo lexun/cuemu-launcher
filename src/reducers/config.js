@@ -1,7 +1,9 @@
 import { Map } from 'immutable';
 import * as actionTypes from '../constants/action-types';
 
-const initialState = Map()
+const initialState = Map({
+  installLocation: '',
+})
 
 export default function(state = initialState, action) {
   switch (action.type) {

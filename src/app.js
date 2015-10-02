@@ -17,6 +17,7 @@ const rootElement = document.getElementById('app-root')
 let store = createStore(reducers)
 let tools = null
 
+// if (false) {
 if (__DEVTOOLS__) {
   const { devTools } = require('redux-devtools')
   const { DevTools, DebugPanel, LogMonitor } =

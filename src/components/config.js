@@ -1,35 +1,94 @@
 import React, { Component, PropTypes } from 'react';
+import path from 'path';
 import { findDOMNode } from 'react-dom';
 import { connect } from 'react-redux';
-import { Input } from 'react-bootstrap';
+import { bindActionCreators } from 'redux';
 import { updateConfig } from '../actions/config';
+import * as fields from '../constants/config-fields';
 
-@connect()
+const styles = {
+  input: {
+    width: 80,
+    display: 'inline',
+  },
+  label: {
+    display: 'block',
+  },
+  path: {
+    color: 'green',
+    marginLeft: 10
+  }
+}
 
-export default class Config extends Component {
+export class Config extends Component {
+  static propTypes = {
+    config: React.PropTypes.object.isRequired,
+    handleChange: React.PropTypes.func.isRequired,
+  }
+
   componentDidMount() {
-    findDOMNode(this).elements['install-location'].webkitdirectory = true
+    findDOMNode(this)
+      .elements['install-location']
+      .webkitdirectory = true
   }
 
   render() {
-    const { config, handleChange } = this.props
-
-    return(
+    return (
       <form>
-        <Input
-          id='install-location'
-          label='Install Location'
-          onChange={this.handleChange('install-location')}
-          type='file' />
+        <div className='form-group'>
+          <label
+            htmlFor='install-location'
+            style={styles.label}>
+            Installation Directory
+          </label>
+
+          <input
+            id='install-location'
+            onChange={this.updateInstallLocation()}
+            style={styles.input}
+            type='file' />
+
+          <label
+            htmlFor='install-location'
+            style={styles.path}>
+            {this.installLocationBasename()}
+          </label>
+        </div>
       </form>
     )
   }
 
-  handleChange(field) {
-    return (event) => {
-      this.props.dispatch(
-        updateConfig(field, event.target.files[0].path)
+  installLocationBasename() {
+    return path.basename(
+      this.props.config.get('installLocation')
+    )
+  }
+
+  updateInstallLocation() {
+    return event => {
+      this.props.handleChange(
+        fields.installLocation,
+        event.target.files[0].path,
       )
     }
   }
 }
+
+function mapStateToProps(store) {
+  return {
+    config: store.config,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    handleChange: updateConfig
+  }, dispatch)
+}
+
+const connectToStore = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)
+
+export default connectToStore(Config)

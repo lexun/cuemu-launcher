@@ -8,11 +8,12 @@ import * as fields from '../constants/config-fields';
 
 const styles = {
   input: {
-    width: 80,
     display: 'inline',
+    width: 80,
   },
   label: {
     display: 'block',
+    width: 150,
   },
   path: {
     color: 'green',

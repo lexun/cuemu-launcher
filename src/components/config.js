@@ -61,7 +61,7 @@ export class Config extends Component {
 
   installLocationBasename() {
     return path.basename(
-      this.props.config.get('installLocation')
+      this.props.config.get(fields.installLocation)
     )
   }
 

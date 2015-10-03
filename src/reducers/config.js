@@ -1,7 +1,7 @@
-import { Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 import * as actionTypes from '../constants/action-types';
 
-const initialState = Map({
+const initialState = fetchConfig() || Map({
   installLocation: '',
 })
 
@@ -12,4 +12,10 @@ export default function(state = initialState, action) {
     default:
       return state
   }
+}
+
+function fetchConfig() {
+  return fromJS(
+    JSON.parse(localStorage.getItem('config'))
+  )
 }

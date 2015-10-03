@@ -8,13 +8,14 @@ import './static/style.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
+import thunk from 'redux-thunk'
 import App from './components/app'
 import reducers from './reducers/app'
 
 const rootElement = document.getElementById('app-root')
 
-let store = createStore(reducers)
+let store = applyMiddleware(thunk)(createStore)(reducers)
 let tools = null
 
 // if (false) {
@@ -23,7 +24,7 @@ if (__DEVTOOLS__) {
   const { DevTools, DebugPanel, LogMonitor } =
     require('redux-devtools/lib/react')
 
-  store = devTools()(createStore)(reducers)
+  store = applyMiddleware(thunk)(devTools()(createStore))(reducers)
   tools = (
     <div className='dev-tools'>
       <DebugPanel top right bottom>

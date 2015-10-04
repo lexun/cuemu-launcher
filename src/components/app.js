@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import Config from './config';
 import Header from './header';
+import Patcher from './patcher';
 import { Grid, Row, Col } from 'react-bootstrap';
+
+const styles = {
+  patcher: {
+    bottom: 20,
+    position: 'fixed',
+  }
+}
 
 export default class App extends Component {
   render() {
@@ -10,8 +18,14 @@ export default class App extends Component {
         <Header />
         <Grid>
           <Row>
-            <Col md={12}>
+            <Col md={6}>
               <Config />
+            </Col>
+          </Row>
+
+          <Row style={styles.patcher}>
+            <Col md={6} style={styles.patcher}>
+              <Patcher />
             </Col>
           </Row>
         </Grid>

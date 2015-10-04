@@ -1,17 +1,17 @@
-import 'bootswatch/slate/bootstrap.css'
+import 'bootswatch/slate/bootstrap.css';
 
-import './static/index.html'
-import './static/logo.png'
-import './static/package.json'
-import './static/style.css'
+import './static/index.html';
+import './static/logo.png';
+import './static/package.json';
+import './static/style.css';
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { applyMiddleware, createStore } from 'redux'
-import thunk from 'redux-thunk'
-import App from './components/app'
-import reducers from './reducers/app'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
+import App from './components/app';
+import reducers from './reducers/app';
 
 const rootElement = document.getElementById('app-root')
 

@@ -1,1 +1,2 @@
 export const CONFIG_UPDATED = 'CONFIG_UPDATED'
+export const FILE_SCANNED = 'FILE_SCANNED'

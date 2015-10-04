@@ -1,4 +1,4 @@
-import { Config } from '../config'
+import { Config } from '../config';
 import React from 'react';
 import Utils from 'react-addons-test-utils';
 import { expect } from 'chai';

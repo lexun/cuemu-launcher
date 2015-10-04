@@ -1,10 +1,10 @@
-import React, { Component, PropTypes } from 'react'
-import path from 'path'
-import { findDOMNode } from 'react-dom'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { updateConfig } from '../actions/config'
-import * as fields from '../constants/config-fields'
+import React, { Component, PropTypes } from 'react';
+import path from 'path';
+import { findDOMNode } from 'react-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { updateConfig } from '../actions/config';
+import * as fields from '../constants/config-fields';
 
 const styles = {
   input: {
@@ -23,8 +23,8 @@ const styles = {
 
 export class Config extends Component {
   static propTypes = {
-    config: React.PropTypes.object.isRequired,
-    handleChange: React.PropTypes.func.isRequired,
+    config: PropTypes.object.isRequired,
+    handleChange: PropTypes.func.isRequired,
   }
 
   componentDidMount() {

@@ -31,7 +31,11 @@ options = {
   },
   resolve: {
     root: __dirname + '/src',
-    packageMains: ['webpack', 'browser', 'main']
+    packageMains: ['webpack', 'browser', 'main'],
+    alias: {
+      react: path.join(__dirname, 'node_modules', 'react')
+    },
+    extensions: ['', '.js']
   },
   publicPath: 'http://localhost:2992/dist/',
   node: {

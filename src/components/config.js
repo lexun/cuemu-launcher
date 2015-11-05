@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
+import radium from 'radium';
 import path from 'path';
 import { findDOMNode } from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { updateConfig } from '../actions/config';
+import { loadConfig, updateConfig } from '../actions/config';
 import * as fields from '../constants/config-fields';
 
 const styles = {
@@ -16,21 +17,43 @@ const styles = {
     width: 150,
   },
   path: {
-    color: 'green',
-    marginLeft: 10
+    base: {
+      marginLeft: 10,
+    },
+    empty: {
+      color: 'red',
+    },
+    valid: {
+      color: 'green',
+    },
   }
 }
 
+@radium
 export class Config extends Component {
   static propTypes = {
     config: PropTypes.object.isRequired,
     handleChange: PropTypes.func.isRequired,
+    loadConfig: PropTypes.func.isRequired,
+  }
+
+  componentWillMount() {
+    this.props.loadConfig()
   }
 
   componentDidMount() {
     findDOMNode(this)
       .elements['install-location']
       .webkitdirectory = true
+  }
+
+  updateInstallLocation() {
+    return event => {
+      this.props.handleChange(
+        fields.installLocation,
+        event.target.files[0].path,
+      )
+    }
   }
 
   render() {
@@ -51,12 +74,21 @@ export class Config extends Component {
 
           <label
             htmlFor='install-location'
-            style={styles.path}>
-            {this.installLocationBasename()}
+            style={[styles.path.base, styles.path[this.status()]]}>
+            {this.labelText()}
           </label>
         </div>
       </form>
     )
+  }
+
+  labelText() {
+    const messages = {
+      empty: 'Please select your installation directory',
+      valid: this.installLocationBasename(),
+    }
+
+    return messages[this.status()]
   }
 
   installLocationBasename() {
@@ -65,13 +97,9 @@ export class Config extends Component {
     )
   }
 
-  updateInstallLocation() {
-    return event => {
-      this.props.handleChange(
-        fields.installLocation,
-        event.target.files[0].path,
-      )
-    }
+  status() {
+    const path = this.props.config.get(fields.installLocation)
+    return (typeof path === 'string' && path.length > 0) ? 'valid' : 'empty'
   }
 }
 
@@ -83,7 +111,8 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    handleChange: updateConfig
+    handleChange: updateConfig,
+    loadConfig,
   }, dispatch)
 }
 

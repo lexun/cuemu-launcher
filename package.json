@@ -32,6 +32,7 @@
     "jsdom": "^6.5.1",
     "mocha": "^2.3.3",
     "mocha-jsdom": "^1.0.0",
+    "radium": "^0.14.1",
     "react": "^0.14.0",
     "react-addons-test-utils": "^0.14.0",
     "react-bootstrap": "^0.27.1",

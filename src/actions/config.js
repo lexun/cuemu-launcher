@@ -1,22 +1,19 @@
 import * as actionTypes from '../constants/action-types';
 
-export function configUpdated(field, value) {
+export function loadConfig() {
   return {
-    type: actionTypes.CONFIG_UPDATED,
-    field,
-    value,
+    type: actionTypes.CONFIG_LOADED,
+    options: JSON.parse(localStorage.getItem('config'))
   }
 }
 
 export function updateConfig(field, value) {
   return (dispatch, getState) => {
-    dispatch(configUpdated(field, value))
-    persistConfig(getState().config)
+    dispatch({ type: actionTypes.CONFIG_UPDATED, field, value })
+    persistConfig(getState().config.toJS())
   }
 }
 
 function persistConfig(config) {
-  return localStorage.setItem('config',
-    JSON.stringify(config.toJS())
-  )
+  return localStorage.setItem('config', JSON.stringify(config))
 }

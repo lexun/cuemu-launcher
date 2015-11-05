@@ -1,2 +1,3 @@
+export const CONFIG_LOADED = 'CONFIG_LOADED'
 export const CONFIG_UPDATED = 'CONFIG_UPDATED'
 export const FILE_SCANNED = 'FILE_SCANNED'

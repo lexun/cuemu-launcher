@@ -10,10 +10,6 @@ export class Patcher extends Component {
     start: PropTypes.func.isRequired,
   }
 
-  componentDidMount() {
-    this.props.start()
-  }
-
   render() {
     return (
       <ProgressBar

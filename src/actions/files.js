@@ -2,25 +2,19 @@ import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
 import * as actionTypes from '../constants/action-types';
-
-export function fileScanned(index, md5) {
-  return {
-    type: actionTypes.FILE_SCANNED,
-    index,
-    md5,
-  }
-}
+import * as configFields from '../constants/config-fields';
 
 export function scan(index = 0) {
   return (dispatch, getState) => {
     const state = getState()
-    if (index == state.files.size) return false
+
+    if (isDoneScanning(state, index) || !isValidDirectory(state)) return false
 
     const file = state.files.get(index)
-    const directory = state.config.get('installLocation')
+    const directory = state.config.get(configFields.installLocation)
 
     scanFile(file, directory).then(digest => {
-      dispatch(fileScanned(index, digest))
+      dispatch({ type: actionTypes.FILE_SCANNED, index, md5: digest })
       dispatch(scan(index + 1))
     })
   }
@@ -35,4 +29,13 @@ function scanFile(file, directory) {
       resolve(md5.digest('hex'))
     })
   })
+}
+
+function isDoneScanning(state, index) {
+  return index === state.files.size
+}
+
+function isValidDirectory(state, index) {
+  const directory = state.config.get(configFields.installLocation)
+  return typeof directory === 'string' && directory.length > 1
 }

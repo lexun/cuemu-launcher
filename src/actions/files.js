@@ -24,7 +24,9 @@ function scanFile(file, directory) {
   return new Promise(resolve => {
     const location = path.resolve(directory, file.get('name'))
 
-    fs.readFile(location, (_error, result) => {
+    fs.readFile(location, (error, result) => {
+      if (error) return resolve(null)
+
       let md5 = crypto.createHash('md5'); md5.update(result)
       resolve(md5.digest('hex'))
     })

@@ -9,8 +9,14 @@ const initialState = fromJS(clientFiles).map((file, index) => {
 export default function(state = initialState, action) {
   switch (action.type) {
     case actionTypes.FILE_SCANNED:
-      return state.setIn([action.index, 'scanned'], true)
+      return state
+        .setIn([action.index, 'scanned'], true)
+        .setIn([action.index, 'isValid'], isValid(state, action))
     default:
       return state
   }
+}
+
+function isValid(state, action) {
+  return action.md5 === state.getIn([action.index, 'md5'])
 }

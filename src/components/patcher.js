@@ -4,10 +4,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { scan } from '../actions/files';
 
-export class Patcher extends Component {
+@connect(store => { return { files: store.files } })
+
+export default class Patcher extends Component {
   static propTypes = {
     files: PropTypes.object.isRequired,
-    start: PropTypes.func.isRequired,
   }
 
   render() {
@@ -22,26 +23,6 @@ export class Patcher extends Component {
 
   percentComplete() {
     let { files } = this.props
-
     return files.count(file => file.get('scanned')) / files.size * 100
   }
 }
-
-function mapStateToProps(store) {
-  return {
-    files: store.files,
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    start: scan,
-  }, dispatch)
-}
-
-const connectToStore = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
-
-export default connectToStore(Patcher)

@@ -148,10 +148,10 @@ const clientFiles = [
     md5: 'a7a30c9856aee156723414983b84c83c'
   }, {
     name: 'local_machine_options.iff',
-    md5: '4bbbd4dd97cd7a81380d92521806792b'
+    md5: '2713afc5937b4ec439939c3f6d6a591a'
   }, {
     name: 'login.cfg',
-    md5: 'f39928bbc6e8ab2ece77a77c5dc9e093'
+    md5: '801ffb103c72da01df4c3ed4eba189a1'
   }, {
     name: 'loginh.cfg',
     md5: 'bf002cdb4ed07b3e66a10bae1a99f015'
@@ -169,7 +169,7 @@ const clientFiles = [
     md5: '3e9029826d8cb962874584ab795a9d31'
   }, {
     name: 'options.cfg',
-    md5: 'd68ad30cd404ef191e4510ae7f49531b'
+    md5: '91e78517c039dc288f1330a14d83aae2'
   }, {
     name: 'patch_00.tre',
     md5: '1517a0a0e7e11c5d1afc43c1b404a045'
@@ -379,7 +379,7 @@ const clientFiles = [
     md5: 'd80c93af261260acd6d12bdeb9410b4a'
   }, {
     name: 'user.cfg',
-    md5: '9a1c676b1b54108dd4b67048c59d03d4'
+    md5: '3563f1b2872bb88ec8d053e265da7682'
   }
 ]
 

@@ -3,15 +3,20 @@ import clientFiles from '../constants/client-files';
 import * as actionTypes from '../constants/action-types';
 
 const initialState = fromJS(clientFiles).map((file, index) => {
-  return file.set('index', index + 1)
+  return file.set('index', index)
 })
 
 export default function(state = initialState, action) {
   switch (action.type) {
+
     case actionTypes.FILE_SCANNED:
       return state
         .setIn([action.index, 'scanned'], true)
-        .setIn([action.index, 'isValid'], isValid(state, action))
+        .setIn([action.index, 'wasValid'], isValid(state, action))
+
+    case actionTypes.FILE_SYNCED:
+      return state.setIn([action.index, 'isSynced'], true)
+
     default:
       return state
   }

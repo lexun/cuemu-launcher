@@ -12,6 +12,7 @@ describe('<Config>', () => {
     const props = {
       config: Map({ installLocation: 'swg' }),
       handleChange: () => {},
+      loadConfig: () => {},
     }
 
     const tree = Utils.renderIntoDocument(<Config {...props}/>)

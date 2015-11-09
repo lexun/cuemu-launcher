@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Config from './config';
 import Header from './header';
+import Monitor from './monitor';
 import Patcher from './patcher';
 import { Grid, Row, Col } from 'react-bootstrap';
 
@@ -29,6 +30,8 @@ export default class App extends Component {
             </Col>
           </Row>
         </Grid>
+
+        <Monitor />
       </div>
     )
   }

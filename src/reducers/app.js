@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import config from './config';
-import files from './files';
+import patcher from './files';
 
 const appReducer = combineReducers({
   config,
-  files,
+  patcher,
 })
 
 export default appReducer

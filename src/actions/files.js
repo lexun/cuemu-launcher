@@ -12,7 +12,7 @@ export function scan(index = 0) {
     const redirect = interruptAction(dispatch, state, index)
     if (redirect) return redirect()
 
-    const file = state.files.get(index)
+    const file = state.patcher.getIn(['files', index])
     const directory = state.config.get(configFields.installLocation)
 
     scanFile(file, directory).then(digest => {
@@ -24,7 +24,7 @@ export function scan(index = 0) {
 
 function patch() {
   return (dispatch, getState) => {
-    let nextFile = getState().files.find(file => {
+    let nextFile = getState().patcher.get('files').find(file => {
       return file.get('wasValid') === false && file.get('isSynced') !== true
     })
 
@@ -71,7 +71,7 @@ function interruptAction(dispatch, state, index) {
 }
 
 function isDoneScanning(state, index) {
-  return index === state.files.size
+  return index === state.patcher.get('files').size
 }
 
 function isValidDirectory(state) {

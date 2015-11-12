@@ -60,7 +60,7 @@ export default class Patcher extends Component {
   statusText() {
     const { status } = this.props
     if (status === 'complete') return this.capitalize(status)
-    return <em>{this.capitalize(this.props.status) + '...'}</em>
+    return <em>{this.capitalize(status) + '...'}</em>
   }
 
   capitalize(string) {

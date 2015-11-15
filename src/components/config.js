@@ -24,7 +24,7 @@ const styles = {
       color: 'red',
     },
     valid: {
-      color: 'green',
+      color: 'limegreen',
     },
   }
 }

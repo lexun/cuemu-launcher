@@ -52,6 +52,24 @@ export default class Patcher extends Component {
   }
 
   percentComplete() {
+    switch (this.props.status) {
+      case 'scanning':
+        return this.scanningProgress()
+      case 'patching':
+        return this.patchingProgress()
+      case 'complete':
+        return 100
+      default:
+        return 0
+    }
+  }
+
+  patchingProgress() {
+    const files = this.props.files.filter(file => !file.get('wasValid'))
+    return files.count(file => file.get('isSynced')) / files.size * 100
+  }
+
+  scanningProgress() {
     const { files } = this.props
     return files.count(file => file.get('scanned')) / files.size * 100
   }

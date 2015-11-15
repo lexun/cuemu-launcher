@@ -5,12 +5,20 @@ import * as actionTypes from '../constants/action-types';
 import * as configFields from '../constants/config-fields';
 
 export default function patch() {
+  return dispatch => {
+    dispatch({ type: actionTypes.PATCHING_STARTED })
+    dispatch(patchNext())
+  }
+}
+
+function patchNext() {
   return (dispatch, getState) => {
     let nextFile = getState().patcher.get('files').find(file => {
       return file.get('wasValid') === false && file.get('isSynced') !== true
     })
 
-    if (nextFile) { sync(nextFile, dispatch, getState()) }
+    if (nextFile) { return sync(nextFile, dispatch, getState()) }
+    dispatch({ type: actionTypes.PATCHING_COMPLETE })
   }
 }
 
@@ -26,7 +34,7 @@ function sync(file, dispatch, state) {
     stream.on('finish', function() {
       stream.close()
       dispatch({ type: actionTypes.FILE_SYNCED, index: file.get('index') })
-      dispatch(patch())
+      dispatch(patchNext())
     })
   })
 }

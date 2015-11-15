@@ -20,6 +20,12 @@ export default function(state = initialState, action) {
     case actionTypes.FILE_SYNCED:
       return state.setIn(['files', action.index, 'isSynced'], true)
 
+    case actionTypes.PATCHING_COMPLETE:
+      return state.set('status', 'complete')
+
+    case actionTypes.PATCHING_STARTED:
+      return state.set('status', 'patching')
+
     default:
       return state
   }

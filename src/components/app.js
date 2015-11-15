@@ -17,6 +17,7 @@ export default class App extends Component {
     return(
       <div>
         <Header />
+
         <Grid>
           <Row>
             <Col md={6}>

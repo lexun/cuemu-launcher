@@ -5,20 +5,27 @@ import patch from './patch';
 import * as actionTypes from '../constants/action-types';
 import * as configFields from '../constants/config-fields';
 
-export default function scan(index = 0) {
+export default function scan() {
   return (dispatch, getState) => {
     const state = getState()
+    if (!isValidDirectory(state)) return false
 
-    const redirect = interruptAction(dispatch, state, index)
-    if (redirect) return redirect()
-    if (index == 0) dispatch({ type: actionTypes.SCANNING_STARTED })
+    dispatch({ type: actionTypes.SCANNING_STARTED })
+    dispatch(scanAt(0))
+  }
+}
+
+function scanAt(index) {
+  return (dispatch, getState) => {
+    const state = getState()
+    if (isDoneScanning(state, index)) return dispatch(patch())
 
     const file = state.patcher.getIn(['files', index])
     const directory = state.config.get(configFields.installLocation)
 
     scanFile(file, directory).then(digest => {
       dispatch({ type: actionTypes.FILE_SCANNED, index, md5: digest })
-      dispatch(scan(index + 1))
+      dispatch(scanAt(index + 1))
     })
   }
 }
@@ -34,14 +41,6 @@ function scanFile(file, directory) {
       resolve(md5.digest('hex'))
     })
   })
-}
-
-function interruptAction(dispatch, state, index) {
-  if (!isValidDirectory(state)) {
-    return () => false
-  } else if (isDoneScanning(state, index)) {
-    return () => dispatch(patch())
-  }
 }
 
 function isDoneScanning(state, index) {

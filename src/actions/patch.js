@@ -1,6 +1,7 @@
 import fs from 'fs';
 import http from 'http';
 import path from 'path';
+import { patcherAddress } from '../constants/cuemu-addresses.js'
 import * as actionTypes from '../constants/action-types';
 import * as configFields from '../constants/config-fields';
 
@@ -23,12 +24,12 @@ function patchNext() {
 }
 
 function sync(file, dispatch, state) {
-  const directory = state.config.get(configFields.installLocation)
-  const filePath = path.resolve(directory, file.get('name'))
-  const stream = fs.createWriteStream(filePath)
-  const url = 'http://patcher1.cuemu.com/patch/' + file.get('name')
+  const stream = fs.createWriteStream(path.resolve(
+    state.config.get(configFields.installLocation),
+    file.get('name')
+  ))
 
-  http.get(url, response => {
+  http.get(patcherAddress + file.get('name'), response => {
     response.pipe(stream)
 
     stream.on('finish', function() {

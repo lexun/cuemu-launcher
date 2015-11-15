@@ -11,6 +11,7 @@ export default function scan(index = 0) {
 
     const redirect = interruptAction(dispatch, state, index)
     if (redirect) return redirect()
+    if (index == 0) dispatch({ type: actionTypes.SCANNING_STARTED })
 
     const file = state.patcher.getIn(['files', index])
     const directory = state.config.get(configFields.installLocation)

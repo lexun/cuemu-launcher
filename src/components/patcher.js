@@ -25,7 +25,7 @@ const styles = {
 export default class Patcher extends Component {
   static propTypes = {
     files: PropTypes.object.isRequired,
-    status: PropTypes.oneOf(['complete', 'patching', 'scanning']).isRequired,
+    status: PropTypes.oneOf(['complete', 'patching', 'pending', 'scanning']).isRequired,
   }
 
   render() {

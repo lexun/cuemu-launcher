@@ -3,7 +3,7 @@ import clientFiles from '../constants/client-files';
 import * as actionTypes from '../constants/action-types';
 
 const initialState = Map({
-  status: 'scanning',
+  status: 'pending',
   files: fromJS(clientFiles).map((file, index) => {
     return file.set('index', index)
   }),
@@ -25,6 +25,9 @@ export default function(state = initialState, action) {
 
     case actionTypes.PATCHING_STARTED:
       return state.set('status', 'patching')
+
+    case actionTypes.SCANNING_STARTED:
+      return state.set('status', 'scanning')
 
     default:
       return state

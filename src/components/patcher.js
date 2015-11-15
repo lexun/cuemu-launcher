@@ -50,6 +50,7 @@ export default class Patcher extends Component {
 
         <ProgressBar active={status !== 'complete'}
                      bsStyle={statusStyleMap[status]}
+                     key={status}
                      label="%(percent)s%"
                      now={this.percentComplete()} />
       </div>

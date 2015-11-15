@@ -18,7 +18,7 @@ export default function(state = initialState, action) {
         .setIn(['files', action.index, 'wasValid'], isValid(state, action))
 
     case actionTypes.FILE_SYNCED:
-      return state.setIn([action.index, 'isSynced'], true)
+      return state.setIn(['files', action.index, 'isSynced'], true)
 
     default:
       return state

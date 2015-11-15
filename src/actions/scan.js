@@ -1,11 +1,11 @@
 import crypto from 'crypto';
 import fs from 'fs';
-import http from 'http';
 import path from 'path';
+import patch from './patch';
 import * as actionTypes from '../constants/action-types';
 import * as configFields from '../constants/config-fields';
 
-export function scan(index = 0) {
+export default function scan(index = 0) {
   return (dispatch, getState) => {
     const state = getState()
 
@@ -22,16 +22,6 @@ export function scan(index = 0) {
   }
 }
 
-function patch() {
-  return (dispatch, getState) => {
-    let nextFile = getState().patcher.get('files').find(file => {
-      return file.get('wasValid') === false && file.get('isSynced') !== true
-    })
-
-    if (nextFile) { sync(nextFile, dispatch, getState()) }
-  }
-}
-
 function scanFile(file, directory) {
   return new Promise(resolve => {
     const location = path.resolve(directory, file.get('name'))
@@ -41,23 +31,6 @@ function scanFile(file, directory) {
 
       let md5 = crypto.createHash('md5'); md5.update(result)
       resolve(md5.digest('hex'))
-    })
-  })
-}
-
-function sync(file, dispatch, state) {
-  const directory = state.config.get(configFields.installLocation)
-  const filePath = path.resolve(directory, file.get('name'))
-  const stream = fs.createWriteStream(filePath)
-  const url = 'http://patcher1.cuemu.com/patch/' + file.get('name')
-
-  http.get(url, response => {
-    response.pipe(stream)
-
-    stream.on('finish', function() {
-      stream.close()
-      dispatch({ type: actionTypes.FILE_SYNCED, index: file.get('index') })
-      dispatch(patch())
     })
   })
 }

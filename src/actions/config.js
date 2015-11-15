@@ -1,4 +1,4 @@
-import { scan } from './files';
+import scan from './scan';
 import * as actionTypes from '../constants/action-types';
 
 export function loadConfig() {

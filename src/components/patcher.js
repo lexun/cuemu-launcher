@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { ProgressBar } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { scan } from '../actions/files';
 
 const styles = {
   complete: {

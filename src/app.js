@@ -13,13 +13,19 @@ import { applyMiddleware, createStore, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 import App from './components/app';
-import Monitor from './components/monitor';
 import reducers from './reducers/app';
 
 const rootElement = document.getElementById('app-root')
+let store
 
-let store = compose(applyMiddleware(thunk), Monitor.instrument())
-                   (createStore)(reducers)
+if (__DEVTOOLS__) {
+  const Monitor = require('./components/monitor')
+  store = compose(applyMiddleware(thunk), Monitor.instrument())
+                 (createStore)(reducers)
+} else {
+  store = applyMiddleware(thunk)(createStore)(reducers)
+}
+
 
 if (module.hot) {
   module.hot.accept('./reducers/app', () =>

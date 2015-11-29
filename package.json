@@ -5,10 +5,10 @@
   "main": "build/main.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack",
-    "build:watch": "./node_modules/.bin/webpack --progress --colors --watch",
+    "build:watch": "./node_modules/.bin/webpack --config webpack/dev.js --progress --colors --watch",
     "clean": "./node_modules/.bin/rimraf build",
     "dev": "./node_modules/.bin/concurrent --kill-others \"npm run build:watch\" \"npm run hot\"",
-    "hot": "./node_modules/.bin/webpack-dev-server --config webpack.config.js --hot --progress --colors --port 2992 --inline",
+    "hot": "./node_modules/.bin/webpack-dev-server --config webpack/dev.js --hot --progress --colors --port 2992 --inline",
     "lint": "./node_modules/.bin/eslint src",
     "start": "cd build && ../node_modules/.bin/electron .",
     "test": "./node_modules/.bin/mocha --compilers js:babel/register --recursive src/**/*-test.js",

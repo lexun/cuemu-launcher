@@ -21,6 +21,9 @@ App.on('ready', () => {
     width: 1200,
   })
 
-  mainWindow.loadUrl('http://localhost:2992/')
+  let index = 'file://' + path.resolve(__dirname, '../index.html')
+  if (__HOT__) { index = 'http://localhost:2992/' }
+
+  mainWindow.loadUrl(index)
   mainWindow.on('closed', () => { mainWindow = null })
 })

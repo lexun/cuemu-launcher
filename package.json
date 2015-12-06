@@ -4,7 +4,7 @@
   "description": "Patcher and Launcher for SWG CUEmu",
   "main": "build/main.js",
   "scripts": {
-    "build": "./node_modules/.bin/webpack",
+    "build": "./node_modules/.bin/webpack --config webpack/dist.js --progress --colors",
     "build:watch": "./node_modules/.bin/webpack --config webpack/dev.js --progress --colors --watch",
     "clean": "./node_modules/.bin/rimraf build",
     "dev": "./node_modules/.bin/concurrent --kill-others \"npm run build:watch\" \"npm run hot\"",

@@ -34,7 +34,6 @@ options = {
     },
     extensions: ['', '.js']
   },
-  publicPath: 'http://localhost:2992/dist/',
   node: {
     __dirname: true
   }

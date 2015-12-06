@@ -7,7 +7,7 @@ options = {
     app: './src/app.js'
   },
   output: {
-    path: __dirname + '../build',
+    path: path.resolve(__dirname, '..', 'build'),
     filename: '[name].js',
     chunkFilename: '[id].js'
   },
@@ -16,7 +16,7 @@ options = {
       {
         test: /\.js$/,
         loaders: ['babel'],
-        include: path.join(__dirname, '..', 'src')
+        include: path.resolve(__dirname, '..', 'src')
       }, {
         test: /(\.html$|\.json$|.png$)/,
         loader: 'file?name=[name].[ext]'

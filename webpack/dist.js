@@ -6,6 +6,12 @@ options.plugins = [
     __DEVTOOLS__: false,
     __HOT__: false
   }),
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    },
+    sourceMap: false
+  })
 ]
 
 module.exports = options

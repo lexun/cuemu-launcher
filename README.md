@@ -1,16 +1,15 @@
 # CUEmu Launcher
 
-![](./erb-logo.png)
+![](erb-logo.png)
 
-[Electron](http://electron.atom.io/) application boilerplate based on
+Powered by
+[Electron](http://electron.atom.io/),
 [React](https://facebook.github.io/react/),
-[Redux](https://github.com/rackt/redux), [React
-Router](https://github.com/rackt/react-router),
-[Webpack](http://webpack.github.io/docs/), [React Transform
-HMR](https://github.com/gaearon/react-transform-hmr)
-
-Boilerplate from [electron-react-boilerplate](
-https://github.com/chentsulin/electron-react-boilerplate)
+[Redux](https://github.com/rackt/redux), and
+[Webpack](http://webpack.github.io/docs/).
+Using
+[Electron React Boilerplate](
+https://github.com/chentsulin/electron-react-boilerplate).
 
 ## Install
 

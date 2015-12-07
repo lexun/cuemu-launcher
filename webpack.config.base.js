@@ -12,7 +12,7 @@ module.exports = {
         exclude: /node_modules/
       }, {
         test: /\.less$/,
-        loader: "style-loader!css!less"
+        loader: "style-loader!css!less?insertAt=top"
       }, {
         test: /(\.html$|\.json$|.png$)/,
         loader: 'file?name=[name].[ext]'

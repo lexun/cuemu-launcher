@@ -53,25 +53,21 @@ npm run start-hot
 npm run package
 ```
 
+> see `package.json` for command details
+
 #### Options
 
-- --name, -n: Application name (default: CUEmu Launcher)
+- --name, -n: Application name (default: Launcher)
 - --version, -v: Electron version (default: latest version)
 - --asar, -a: [asar](https://github.com/atom/asar) support (default:
   false)
 - --icon, -i: Application icon
 - --all: pack for all platforms
 
-Provide all options after an extra `--`. eg:
-
-```bash
-npm run package -- --foo --bar
-```
-
 After packaging, you will find the builds in `release` folder.
 
-`test`, `tools`, `release` folder and devDependencies in `package.json`
-will be ignored by default.
+`client`, `test`, `tools`, `release` folder and devDependencies in
+`package.json` will be ignored.
 
 #### Building windows apps from non-windows platforms
 

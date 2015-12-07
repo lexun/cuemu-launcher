@@ -11,7 +11,7 @@ const argv = require('minimist')(process.argv.slice(2));
 const devDeps = Object.keys(require('./package.json').devDependencies);
 
 
-const appName = argv.name || argv.n || 'CUEmu Launcher';
+const appName = argv.name || argv.n || 'Launcher';
 const shouldUseAsar = argv.asar || argv.a || false;
 const shouldBuildAll = argv.all || false;
 
@@ -21,6 +21,7 @@ const DEFAULT_OPTS = {
   name: appName,
   asar: shouldUseAsar,
   ignore: [
+    '/client($|/)',
     '/test($|/)',
     '/tools($|/)',
     '/release($|/)'

@@ -46,7 +46,7 @@ app.on('ready', () => {
     template = [{
       label: 'Launcher',
       submenu: [{
-        label: 'Hide ElectronReact',
+        label: 'Hide Launcher',
         accelerator: 'Command+H',
         selector: 'hide:'
       }, {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ipc from 'ipc';
+import { ipcRenderer as ipc } from 'electron';
 
 const styles = {
   main: {

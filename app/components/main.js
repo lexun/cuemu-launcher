@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Config from './config';
 import Header from './header';
-import Monitor from './monitor';
 import Patcher from './patcher';
 import { Grid, Row, Col } from 'react-bootstrap';
 
@@ -12,7 +11,7 @@ const styles = {
   }
 }
 
-export default class App extends Component {
+export default class Main extends Component {
   render() {
     return(
       <div>
@@ -31,8 +30,6 @@ export default class App extends Component {
             </Col>
           </Row>
         </Grid>
-
-        <Monitor />
       </div>
     )
   }

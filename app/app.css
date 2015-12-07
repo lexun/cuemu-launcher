@@ -7,7 +7,7 @@ html, body {
   -webkit-user-select: none;
 }
 
-a, button, .form-group, .dev-tools > div {
+a, button, .form-group, .dev-tools * {
   -webkit-app-region: no-drag;
 }
 

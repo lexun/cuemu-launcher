@@ -15,8 +15,9 @@ https://github.com/chentsulin/electron-react-boilerplate).
 
 Install dependencies.
 
-```bash $ npm install ```
-
+```bash
+npm install
+```
 
 ## Run
 
@@ -61,9 +62,13 @@ npm run package
 - --icon, -i: Application icon
 - --all: pack for all platforms
 
-Use `electron-packager` to pack your app with `--all` options for darwin
-(osx), linux and win32 (windows) platform. After build, you will find
-them in `release` folder. Otherwise, you will only find one for your os.
+Provide all options after an extra `--`. eg:
+
+```bash
+npm run package -- --foo --bar
+```
+
+After packaging, you will find the builds in `release` folder.
 
 `test`, `tools`, `release` folder and devDependencies in `package.json`
 will be ignored by default.
@@ -76,4 +81,6 @@ building-windows-apps-from-non-windows-platforms).
 
 ---
 
-License MIT © [Luke Barbuto](https://github.com/lexun)
+### License
+
+MIT © [Luke Barbuto](https://github.com/lexun)

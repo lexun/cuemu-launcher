@@ -11,11 +11,11 @@ a, button, .form-group, .dev-tools * {
   -webkit-app-region: no-drag;
 }
 
-input[type='file'] {
-  color: darkgray;
-  line-height: 1em;
-}
-
+.btn:active,
+.btn:active.btn:focus,
+.btn:focus,
+.label:active,
+.label:active.label:focus,
 .label:focus {
   outline: none;
 }

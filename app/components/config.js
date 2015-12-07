@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Button } from 'react-bootstrap';
 import radium from 'radium';
 import path from 'path';
 import { findDOMNode } from 'react-dom';
@@ -9,8 +10,7 @@ import * as fields from '../constants/config-fields';
 
 const styles = {
   input: {
-    display: 'inline',
-    width: 80,
+    display: 'none',
   },
   label: {
     display: 'block',
@@ -68,9 +68,16 @@ export class Config extends Component {
 
           <input
             id='install-location'
+            ref={input => this.folderSelect = input}
             onChange={this.updateInstallLocation()}
             style={styles.input}
             type='file' />
+
+          <Button bsSize='xsmall'
+                  bsStyle='info'
+                  onClick={() => this.folderSelect.click()}>
+            Select Folder
+          </Button>
 
           <label
             htmlFor='install-location'

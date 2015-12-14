@@ -153,9 +153,6 @@ const clientFiles = [
     name: 'login.cfg',
     md5: '801ffb103c72da01df4c3ed4eba189a1'
   }, {
-    name: 'loginh.cfg',
-    md5: 'bf002cdb4ed07b3e66a10bae1a99f015'
-  }, {
     name: 'miles/Msseax.m3d',
     md5: 'b24028b6511fa3cb96bcbf1ef2838696'
   }, {

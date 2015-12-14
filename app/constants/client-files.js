@@ -90,6 +90,9 @@ const clientFiles = [
     name: 'data_texture_02.tre',
     md5: '9d5dda098c258bb5caa84a610715d834'
   }, {
+    name: 'data_texture_03.tre',
+    md5: '636c5d29046f354c8a118b3c96285084'
+  }, {
     name: 'data_texture_04.tre',
     md5: '80057e761dc219250b9319e61f10ba91'
   }, {

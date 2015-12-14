@@ -1,4 +1,6 @@
-const clientFiles = [
+export const executable = 'SwgClient_r.exe'
+
+export const clientFiles = [
   {
     name: 'BugTool.exe',
     md5:'d983f15fc6665ce8a7c4d8eec814d70e'

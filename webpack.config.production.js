@@ -16,6 +16,12 @@ config.entry = './app/index';
 config.output.publicPath = '/dist/';
 
 config.module.loaders.push({
+  test: /\.less$/,
+  loader: ExtractTextPlugin.extract(
+    'style-loader',
+    'css!less'
+  )
+}, {
   test: /^((?!\.module).)*\.css$/,
   loader: ExtractTextPlugin.extract(
     'style-loader',

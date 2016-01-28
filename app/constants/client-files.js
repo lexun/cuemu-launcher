@@ -379,9 +379,6 @@ export const clientFiles = [
   }, {
     name: 'unicows.dll',
     md5: 'd80c93af261260acd6d12bdeb9410b4a'
-  }, {
-    name: 'user.cfg',
-    md5: '3563f1b2872bb88ec8d053e265da7682'
   }
 ]
 

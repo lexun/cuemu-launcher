@@ -150,7 +150,7 @@ export const clientFiles = [
     md5: 'd41d8cd98f00b204e9800998ecf8427e'
   }, {
     name: 'live.cfg',
-    md5: 'a7a30c9856aee156723414983b84c83c'
+    md5: false
   }, {
     name: 'local_machine_options.iff',
     md5: '2713afc5937b4ec439939c3f6d6a591a'
@@ -171,7 +171,7 @@ export const clientFiles = [
     md5: '3e9029826d8cb962874584ab795a9d31'
   }, {
     name: 'options.cfg',
-    md5: '91e78517c039dc288f1330a14d83aae2'
+    md5: false
   }, {
     name: 'patch_00.tre',
     md5: '1517a0a0e7e11c5d1afc43c1b404a045'

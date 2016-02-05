@@ -35,5 +35,14 @@ export default function(state = initialState, action) {
 }
 
 function isValid(state, action) {
-  return action.md5 === state.getIn(['files', action.index, 'md5'])
+  const expected = state.getIn(['files', action.index, 'md5'])
+  return action.md5 === expected || notRequired(expected) && present(action.md5)
+}
+
+function notRequired(md5) {
+  return md5 === false
+}
+
+function present(md5) {
+  return md5 !== null
 }

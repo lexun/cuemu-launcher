@@ -26,10 +26,10 @@ app.on('ready', () => {
   mainWindow = new BrowserWindow({
     frame: false,
     fullscreen: false,
-    height: 600,
+    height: 350,
     resizable: false,
     transparent: true,
-    width: 1200,
+    width: 800,
   });
 
   if (process.env.HOT) {

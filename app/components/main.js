@@ -25,17 +25,17 @@ export default class Main extends Component {
 
         <Grid>
           <Row>
-            <Col md={6}>
+            <Col xs={12}>
               <Config />
             </Col>
           </Row>
 
           <Row style={styles.footer}>
-            <Col md={6}>
+            <Col xs={10}>
               <Patcher />
             </Col>
 
-            <Col md={6} style={styles.launcher}>
+            <Col xs={2} style={styles.launcher}>
               <Launcher />
             </Col>
           </Row>

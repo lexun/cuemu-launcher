@@ -150,13 +150,13 @@ export const clientFiles = [
     md5: 'd41d8cd98f00b204e9800998ecf8427e'
   }, {
     name: 'live.cfg',
-    md5: false
+    md5: 'a7a30c9856aee156723414983b84c83c'
   }, {
     name: 'local_machine_options.iff',
     md5: '2713afc5937b4ec439939c3f6d6a591a'
   }, {
     name: 'login.cfg',
-    md5: '801ffb103c72da01df4c3ed4eba189a1'
+    md5: false
   }, {
     name: 'miles/Msseax.m3d',
     md5: 'b24028b6511fa3cb96bcbf1ef2838696'

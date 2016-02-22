@@ -13,8 +13,9 @@
     "build": "NODE_ENV=production webpack --config webpack.config.production.js --progress --profile --colors",
     "start": "electron .",
     "start-hot": "HOT=1 NODE_ENV=development electron .",
-    "package": "NODE_ENV=production node package.js -a -n Launcher -i app/cuemu --overwrite",
-    "package-all": "npm run package -- --all"
+    "package": "NODE_ENV=production node package.js -a -n CUEmu -i app/cuemu --overwrite",
+    "package-all": "npm run package -- --all && npm run generate-installer",
+    "generate-installer": "node_modules/.bin/electron-builder release/win32-x64/CUEmu-win32-x64 --platform=win --out=release/installers/ --config=installer.json"
   },
   "bin": {
     "electron": "./node_modules/.bin/electron"
@@ -88,6 +89,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "bootswatch": "^3.3.6",
+    "electron-builder": "^2.7.2",
     "electron-debug": "^0.5.1",
     "font-awesome": "^4.4.0",
     "history": "^1.17.0",

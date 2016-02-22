@@ -44,9 +44,9 @@ app.on('ready', () => {
 
   if (process.platform === 'darwin') {
     template = [{
-      label: 'Launcher',
+      label: 'CUEmu',
       submenu: [{
-        label: 'Hide Launcher',
+        label: 'Hide CUEmu',
         accelerator: 'Command+H',
         selector: 'hide:'
       }, {

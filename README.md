@@ -51,9 +51,17 @@ npm run start-hot
 
 ```bash
 npm run package
+npm run generate-installer
 ```
 
-> see `package.json` for command details
+Or, run the following to generate builds for all platforms, and an
+installer for the 64 bit windows build.
+
+```bash
+npm run package-all
+```
+
+> see `package.json` for more command details
 
 #### Options
 
@@ -71,7 +79,7 @@ After packaging, you will find the builds in `release` folder.
 
 #### Building windows apps from non-windows platforms
 
-Please checkout [Building windows apps from non-windows
+Please check out [Building windows apps from non-windows
 platforms](https://github.com/maxogden/electron-packager#
 building-windows-apps-from-non-windows-platforms).
 

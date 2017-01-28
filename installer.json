@@ -1,9 +1,0 @@
-{
-  "win" : {
-    "title" : "CUEmu",
-    "version": "0.1.0-beta",
-    "publisher": "CUEmu",
-    "icon" : "app/cuemu.ico",
-    "verbosity": 1
-  }
-}

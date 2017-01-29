@@ -1,27 +1,27 @@
 const {
   addPlugins,
   createConfig,
+  defineConstants,
   entryPoint,
   env,
   setOutput,
-  sourceMaps,
   webpack
 } = require("@webpack-blocks/webpack2");
+
+const devServer = require("@webpack-blocks/dev-server2");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = createConfig([
   entryPoint("./src/index"),
   setOutput("./app/index.js"),
+  defineConstants({ "process.env.NODE_ENV": process.env.NODE_ENV }),
   addPlugins([
-    new HtmlWebpackPlugin({ inject: true, template: "./src/index.html" }),
-    new webpack.DefinePlugin({
-      "process.env": JSON.stringify(process.env || "development")
-    })
+    new HtmlWebpackPlugin({ inject: true, template: "./src/index.html" })
   ]),
   loadElm(),
   loadFiles(),
-  env("development", [ sourceMaps() ])
+  env("development", [ devServer() ])
 ]);
 
 function loadElm() {

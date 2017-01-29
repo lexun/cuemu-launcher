@@ -4,9 +4,11 @@
   "description": "CUEmu Launcher",
   "main": "main.js",
   "scripts": {
-    "build": "rimraf app && webpack",
-    "electron": "electron app",
-    "start": "npm run build && npm run electron"
+    "build": "npm run clean && webpack",
+    "clean": "rimraf app",
+    "dev-server": "npm run build && webpack-dev-server",
+    "start-dev": "NODE_ENV=development electron app",
+    "start": "NODE_ENV=production electron app"
   },
   "author": "Luke Barbuto",
   "license": "MIT",
@@ -19,6 +21,7 @@
     "url": "https://github.com/lexun/cuemu-launcher/issues"
   },
   "dependencies": {
+    "@webpack-blocks/dev-server2": "^0.4.0",
     "@webpack-blocks/webpack2": "^0.4.0",
     "electron": "^1.4.15",
     "elm-webpack-loader": "^4.2.0",

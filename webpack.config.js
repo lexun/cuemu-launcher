@@ -10,6 +10,7 @@ const {
 
 const devServer = require("@webpack-blocks/dev-server2");
 
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = createConfig([
@@ -17,10 +18,15 @@ module.exports = createConfig([
   setOutput("./app/index.js"),
   defineConstants({ "process.env.NODE_ENV": process.env.NODE_ENV }),
   addPlugins([
+    new CopyWebpackPlugin([
+      { from: "./package.json", to: "package.json" },
+      { from: "./src/index.html", to: "index.html" },
+      { from: "./src/logo.png", to: "logo.png" },
+      { from: "./src/main.js", to: "main.js" }
+    ]),
     new HtmlWebpackPlugin({ inject: true, template: "./src/index.html" })
   ]),
   loadElm(),
-  loadFiles(),
   env("development", [ devServer() ])
 ]);
 
@@ -32,20 +38,6 @@ function loadElm() {
           test: /\.elm$/,
           exclude: [ /elm-stuff/, /node_modules/ ],
           loader: "elm-webpack-loader"
-        }
-      ]
-    }
-  });
-}
-
-function loadFiles() {
-  return context => ({
-    module: {
-      loaders: [
-        {
-          test: [ /main\.js$/, /package\.json$/ ],
-          exclude: [ /elm-stuff/, /node_modules/ ],
-          loader: "file-loader?name=[name].[ext]"
         }
       ]
     }

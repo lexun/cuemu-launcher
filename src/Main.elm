@@ -1,10 +1,7 @@
 module Main exposing (..)
 
 import Html exposing (..)
-
-
--- import Html.Attributes exposing (..)
--- import Html.Events exposing (onClick)
+import Html.Attributes exposing (..)
 
 
 main : Program Never Model Msg
@@ -65,4 +62,4 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-    div [] [ text "CUEmu" ]
+    img [ src "logo.png" ] []

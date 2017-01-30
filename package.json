@@ -23,6 +23,7 @@
   "dependencies": {
     "@webpack-blocks/dev-server2": "^0.4.0",
     "@webpack-blocks/webpack2": "^0.4.0",
+    "copy-webpack-plugin": "^4.0.1",
     "electron": "^1.4.15",
     "elm-webpack-loader": "^4.2.0",
     "file-loader": "^0.10.0",

@@ -36,8 +36,12 @@ function loadElm() {
       loaders: [
         {
           test: /\.elm$/,
-          exclude: [ /elm-stuff/, /node_modules/ ],
+          exclude: [ /elm-stuff/, /node_modules/, /Stylesheets\.elm$/ ],
           loader: "elm-hot-loader!elm-webpack-loader"
+        },
+        {
+          test: /Stylesheets\.elm$/,
+          loader: "style-loader!css-loader!elm-css-webpack-loader"
         }
       ]
     }

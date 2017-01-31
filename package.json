@@ -25,6 +25,7 @@
     "@webpack-blocks/webpack2": "^0.4.0",
     "copy-webpack-plugin": "^4.0.1",
     "electron": "^1.4.15",
+    "elm-css-webpack-loader": "^2.0.2",
     "elm-hot-loader": "^0.5.4",
     "elm-webpack-loader": "^4.2.0",
     "file-loader": "^0.10.0",

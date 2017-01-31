@@ -23,7 +23,7 @@ module.exports = createConfig([
   defineConstants({ "process.env.NODE_ENV": process.env.NODE_ENV }),
   addPlugins([
     new CopyWebpackPlugin([
-      { from: "./package.json", to: "package.json" },
+      { from: "./src/package.json", to: "package.json" },
       { from: "./src/index.html", to: "index.html" },
       { from: "./src/logo.png", to: "logo.png" },
       { from: "./src/main.js", to: "main.js" }

@@ -62,4 +62,7 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-    img [ src "logo.png" ] []
+    div []
+        [ img [ src "logo.png" ] []
+        , span [] [ text "2.0.0-alpha.1" ]
+        ]

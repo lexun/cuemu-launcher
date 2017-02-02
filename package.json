@@ -1,9 +1,12 @@
 {
   "name": "cuemu-launcher",
+  "version": "2.0.0-alpha.1",
   "description": "SWG launcher for CUEmu",
+  "productName": "Launcher",
+  "homepage": "https://github.com/lexun/cuemu-launcher#readme",
   "author": "Luke Barbuto",
   "license": "MIT",
-  "homepage": "https://github.com/lexun/cuemu-launcher#readme",
+  "main": "./out/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lexun/cuemu-launcher.git"
@@ -12,23 +15,31 @@
     "url": "https://github.com/lexun/cuemu-launcher/issues"
   },
   "scripts": {
-    "build": "npm run clean && NODE_ENV=production webpack",
-    "clean": "rimraf app",
-    "dev-server": "npm run build && webpack-dev-server",
-    "dist": "build",
-    "pack": "build --dir",
-    "postinstall": "npm run build && install-app-deps",
-    "start-dev": "NODE_ENV=development electron app",
-    "start": "NODE_ENV=production electron app"
+    "compile": "npm run clean && NODE_ENV=production webpack",
+    "clean": "rimraf out",
+    "dev-server": "NODE_ENV=development webpack-dev-server",
+    "dist": "npm run compile && build -w --x64",
+    "pack": "npm run compile && build",
+    "postinstall": "install-app-deps",
+    "release": "dist",
+    "start-dev": "NODE_ENV=development electron ./out",
+    "start": "NODE_ENV=production electron ./out"
   },
   "build": {
     "appId": "com.cuemu.launcher",
+    "files": [
+      "out",
+      "node_modules"
+    ],
     "mac": {
       "category": "public.app-category.utilities"
     },
     "win": {
       "iconUrl": "https://dl.dropboxusercontent.com/u/17420787/cuemu/cuemu.ico"
     }
+  },
+  "dependencies": {
+    "auto-updater": "^1.0.2"
   },
   "devDependencies": {
     "@webpack-blocks/dev-server2": "^0.4.0",

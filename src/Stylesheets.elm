@@ -17,7 +17,7 @@ main =
 fileStructure : CssFileStructure
 fileStructure =
     Css.File.toFileStructure
-        [ ( "index.css"
+        [ ( "main.css"
           , Css.File.compile
                 [ common
                 ]

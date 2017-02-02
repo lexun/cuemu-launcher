@@ -15,20 +15,18 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const stylesheetExtractor = new ExtractTextPlugin("index.css");
+const stylesheetExtractor = new ExtractTextPlugin("main.css");
 
 module.exports = createConfig([
-  entryPoint("./src/index"),
-  setOutput("./app/index.js"),
+  entryPoint("./src/main"),
+  setOutput("./out/bundle.js"),
   defineConstants({ "process.env.NODE_ENV": process.env.NODE_ENV }),
   addPlugins([
     new CopyWebpackPlugin([
-      { from: "./src/package.json", to: "package.json" },
-      { from: "./src/index.html", to: "index.html" },
       { from: "./src/logo.png", to: "logo.png" },
-      { from: "./src/main.js", to: "main.js" }
+      { from: "./src/process.js", to: "index.js" }
     ]),
-    new HtmlWebpackPlugin({ inject: true, template: "./src/index.html" }),
+    new HtmlWebpackPlugin({ inject: true, template: "./src/main.html" }),
     new webpack.optimize.UglifyJsPlugin()
   ]),
   loadElm(),

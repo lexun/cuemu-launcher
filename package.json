@@ -21,7 +21,7 @@
     "dist": "npm run compile && build -w --x64",
     "pack": "npm run compile && build",
     "postinstall": "install-app-deps",
-    "release": "dist",
+    "release": "build -w --x64",
     "start-dev": "NODE_ENV=development electron ./out",
     "start": "NODE_ENV=production electron ./out"
   },

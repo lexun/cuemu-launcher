@@ -30,17 +30,17 @@ module.exports = createConfig([
     new webpack.optimize.UglifyJsPlugin()
   ]),
   loadElm(),
-  env("development", [ devServer(), elmStyleDev() ]),
+  env("development", [devServer(), elmStyleDev()]),
   env("production", [
     elmStyleProd(),
-    addPlugins([ stylesheetExtractor, new webpack.optimize.UglifyJsPlugin() ])
+    addPlugins([stylesheetExtractor, new webpack.optimize.UglifyJsPlugin()])
   ])
 ]);
 
 function loadElm() {
   return loader({
     test: /\.elm$/,
-    exclude: [ /elm-stuff/, /node_modules/, /Stylesheets\.elm$/ ],
+    exclude: [/elm-stuff/, /node_modules/, /Stylesheets\.elm$/],
     loader: "elm-hot-loader!elm-webpack-loader"
   });
 }
@@ -64,5 +64,5 @@ function elmStyleProd() {
 }
 
 function loader(object) {
-  return context => ({ module: { loaders: [ object ] } });
+  return context => ({ module: { loaders: [object] } });
 }

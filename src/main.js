@@ -1,4 +1,4 @@
-require('./Stylesheets.elm');
+require("./Stylesheets.elm");
 
 const Elm = require("./Main.elm");
 const mountNode = document.getElementById("main");

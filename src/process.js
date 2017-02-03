@@ -8,17 +8,15 @@ function createWindow() {
   window = new BrowserWindow({ width: 800, height: 400 });
 
   window.loadURL(
-    process.env.NODE_ENV === "development"
-      ? url.format({
-        pathname: "localhost:8080",
-        protocol: "http:",
-        slashes: true
-      })
-      : url.format({
-        pathname: path.join(__dirname, "index.html"),
-        protocol: "file:",
-        slashes: true
-      })
+    process.env.NODE_ENV === "development" ? url.format({
+          pathname: "localhost:8080",
+          protocol: "http:",
+          slashes: true
+        }) : url.format({
+          pathname: path.join(__dirname, "index.html"),
+          protocol: "file:",
+          slashes: true
+        })
   );
 
   window.on("closed", () => {
